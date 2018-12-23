@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BattleShip_JavaFX.iml" filepath="$PROJECT_DIR$/BattleShip_JavaFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../BattleShip_Web/BattleShip_Web.iml" filepath="$PROJECT_DIR$/../BattleShip_Web/BattleShip_Web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BattleShip_Web/BattleShip_Web.iml" filepath="$PROJECT_DIR$/BattleShip_Web/BattleShip_Web.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Battle-Ship Game</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    
+    <!-- jQuery first, then Bootstrap JS -->
+    <script type="text/javascript" src="../../jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../jquery/context-path-helper.js"></script>
+    <script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="GamePage.js"></script>
+    
+    <style>
+        body {
+            background: url('../../images/background.jpeg') no-repeat;
+            background-size: cover;
+        }
+        
+        td {
+            border: 1px solid grey;
+            background-color: lightslategrey;
+            opacity: 0.9;
+        }
+        
+        div {
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .tile {
+            text-align: center;
+            vertical-align: top;
+            font-size: 10px;
+            background-color: lightgray;
+            width: 35px;
+            height: 35px;
+            border-width: 3px;
+            padding: 0px;
+        }
+    
+    
+    </style>
+
+</head>
+
+
+<div class="navbar navbar-inverse">
+    
+    <div class="container">
+        
+        <div class="navbar-header">
+            
+            <a href="" class="navbar-brand">Battle-Ship</a>
+            
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                
+                <span class="sr-only">Toggle Navigation</span>
+                
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            
+            </button>
+        
+        </div>
+        
+        <div class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav">
+                
+                <li><a>Login</a></li>
+                <li><a>Main</a></li>
+                <li class="active"><a>Game</a></li>
+            
+            </ul>
+        
+        </div>
+    
+    </div>
+
+</div>
+
+
+<div class="container">
+    
+    <!--<div class="row">-->
+    
+    <table class="table">
+        <!--Info Row-->
+        <tr>
+            <!--Player 1 Info-->
+            <td id="PlayerInfo">
+                <div>
+                    <h2>Player Statistics:</h2>
+                    <p><label id="PlayerName">Name: </label></p>
+                    <p><label id="PlayerScore">Score: </label></p>
+                    <p><label id="PlayerHit">Hits: </label></p>
+                    <p><label id="PlayerMiss">Miss: </label></p>
+                    <p><label id="PlayerAvgTime">Avg-Time: </label></p>
+                    <p><label id="PlayerShips">Ships: </label></p>
+                </div>
+            </td>
+            <!--Player 1 Mines-->
+            <td id="MinesInfo">
+                <h2>Mines:</h2>
+                <div id="Mines">
+                    <!--todo: Change to vV-->
+                </div>
+            </td>
+            <!--Game Info-->
+            <td id="GameInfo">
+                <div>
+                    <h1>Battle-Ship Game</h1>
+                    <br>
+                    <p><label id="TurnInfo" style="font-size: 200%">Waiting For Opponent To Connect..</label></p>
+                    <p><label id="TurnNumber" style="font-size: 90%">Turn Number: 0</label></p>
+                    <br>
+                    <p><label id="AttackResult" style="font-size: 120%"></label></p>
+                    <button value="Quit" id="Quit" name="Quit" onclick="QuitGame()">Exit Game</button>
+                    <p><br></p>
+                </div>
+            </td>
+            <!--Player 2 Info-->
+            <td id="OpponentInfo">
+                <div>
+                    <h2>Enemy Statistics:</h2>
+                    <p><label id="OpponentName">Name: </label></p>
+                    <p><label id="OpponentScore">Score: </label></p>
+                    <p><label id="OpponentHits">Hits: </label></p>
+                    <p><label id="OpponentMiss">Miss: </label></p>
+                    <p><label id="OpponentAvgTime">Avg-Time: </label></p>
+                    <p><label id="OpponentShips">Ships: </label></p>
+                </div>
+            
+            </td>
+        </tr>
+    </table>
+    
+    <table border="0" width="65%" ; style="margin-right: auto ; margin-left: auto;text-align: center">
+        <tr style="font-size: 28px; font-weight: 300; line-height: 40px; margin: 0 0 16px;">
+            <td id="ShipBoard">Ship-Board</td>
+            <td id="HitBoard">Hits-Board</td>
+        </tr>
+    </table>
+
+</div>
+
+
+<!---->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!---->
+<!--</div>-->
+<!---->
+<!---->
+<!--<table class="table-bordered">-->
+<!--&lt;!&ndash;row 1&ndash;&gt;-->
+<!--<tr>-->
+<!--&lt;!&ndash;player 1 info&ndash;&gt;-->
+<!--<td width="25%" align="left">-->
+<!--<h2 align="center">Player 1</h2>-->
+<!--</td>-->
+<!---->
+<!--<td width="50%" align="left">-->
+<!--<h1 align="center">Battle-Ship Game</h1>-->
+<!---->
+<!--</td>-->
+<!---->
+<!---->
+<!--&lt;!&ndash;player 2 info&ndash;&gt;-->
+<!--<td width="25%" align="left">-->
+<!--<h2 align="center">Player 2</h2>-->
+<!--</td>-->
+<!---->
+<!---->
+<!--</tr>-->
+<!---->
+<!--&lt;!&ndash;row 2&ndash;&gt;-->
+<!--<tr>-->
+<!--<td id="shipBoard" width="50%" align="center">Ship Board</td>-->
+<!--<td id="hitsBoard" width="50%" align="center">Hits Board</td>-->
+<!--</tr>-->
+<!---->
+<!--</table>-->
+<!---->
+
+<!--<div class="container">-->
+<!---->
+<!---->
+<!--&lt;!&ndash; Page Features &ndash;&gt;-->
+<!--<div class="row text-center">-->
+<!---->
+<!--<div class="col-lg-3 col-md-6 mb-4 info">-->
+<!--<div class="card">-->
+<!--<img class="card-img-top" src="http://placehold.it/500x325" alt="">-->
+<!--<div class="card-body">-->
+<!--<h4 class="card-title">Card title</h4>-->
+<!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>-->
+<!--</div>-->
+<!--<div class="card-footer">-->
+<!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!---->
+<!--<div class="col-lg-3 col-md-6 mb-4 info">-->
+<!--<div class="card">-->
+<!--<img class="card-img-top" src="http://placehold.it/500x325" alt="">-->
+<!--<div class="card-body">-->
+<!--<h4 class="card-title">Card title</h4>-->
+<!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
+<!--</div>-->
+<!--<div class="card-footer">-->
+<!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!---->
+<!--<div class="col-lg-3 col-md-6 mb-4 info">-->
+<!--<div class="card">-->
+<!--<img class="card-img-top" src="http://placehold.it/500x325" alt="">-->
+<!--<div class="card-body">-->
+<!--<h4 class="card-title">Card title</h4>-->
+<!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>-->
+<!--</div>-->
+<!--<div class="card-footer">-->
+<!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!---->
+<!--</div>-->
+
+</body>
+</html>
